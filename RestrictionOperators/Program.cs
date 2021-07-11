@@ -16,7 +16,7 @@ namespace RestrictionOperators
       // It demonstrates the components of a query, including a where clause that filters for small numbers.
       printHeaders("LINQ query structure");
 
-      List<int> numbers = new List<int>(){5, 4, 1, 3, 9, 8, 6, 7, 2, 0};
+      int[] numbers = {5, 4, 1, 3, 9, 8, 6, 7, 2, 0};
 
       var lowNums = from num in numbers
                     where num < 5
@@ -41,10 +41,24 @@ namespace RestrictionOperators
       {
           Console.WriteLine($"{product.ProductName} is sold out!");
       }
+      
+      // This sample demonstrates an indexed Where clause that returns digits whose name is shorter than their value.
+      printHeaders("Filter elements based on position");
+
+      string[] digits = { "zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine" };
+
+      var shortDigits = digits.Where((digit, index) => digit.Length < index);
+
+      Console.WriteLine("Short digits:");
+      foreach (var d in shortDigits)
+      {
+          Console.WriteLine($"The word {d} is shorter than its value.");
+}
     }
   
     private static void printHeaders(string text)
     {
+      Console.WriteLine("");
       Console.WriteLine(SEPARATOR);
       Console.WriteLine(text);
       Console.WriteLine(SEPARATOR);
