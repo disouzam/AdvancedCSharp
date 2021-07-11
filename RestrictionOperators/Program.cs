@@ -1,4 +1,4 @@
-// https://channel9.msdn.com/Series/C-Advanced/Introduction-to-Language-Integrated-Query-LINQ--C-Advanced-1-of-8
+﻿// https://channel9.msdn.com/Series/C-Advanced/Introduction-to-Language-Integrated-Query-LINQ--C-Advanced-1-of-8
 
 using System;
 using System.Collections.Generic;
@@ -18,12 +18,12 @@ namespace RestrictionOperators
 
       int[] numbers = {5, 4, 1, 3, 9, 8, 6, 7, 2, 0};
 
-      var lowNums = from num in numbers
+      IEnumerable<int> lowNums = from num in numbers
                     where num < 5
                     select num;
 
       Console.WriteLine("Numbers < 5:");
-      foreach (var x in lowNums)
+      foreach (int x in lowNums)
       {
         Console.WriteLine(x);
       }
@@ -32,12 +32,12 @@ namespace RestrictionOperators
       printHeaders("Filter elements on a property");
       List<Product> products = Restrictions.GetProductList();
 
-      var soldOutProducts = from prod in products
+      IEnumerable<Product> soldOutProducts = from prod in products
                             where prod.UnitsInStock == 0
                             select prod;
 
       Console.WriteLine("Sold out products:");
-      foreach (var product in soldOutProducts)
+      foreach (Product product in soldOutProducts)
       {
           Console.WriteLine($"{product.ProductName} is sold out!");
       }
@@ -47,12 +47,12 @@ namespace RestrictionOperators
 
       List<Product> products2 = Restrictions.GetProductList();
 
-      var expensiveInStockProducts = from prod in products2
+      IEnumerable<Product> expensiveInStockProducts = from prod in products2
                                     where prod.UnitsInStock > 0 && prod.UnitPrice > 3.00M
                                     select prod;
 
       Console.WriteLine("In-stock products that cost more than 3.00:");
-      foreach (var product in expensiveInStockProducts)
+      foreach (Product product in expensiveInStockProducts)
       {
           Console.WriteLine($"{product.ProductName} is in stock and costs more than 3.00.");
       }
@@ -62,10 +62,10 @@ namespace RestrictionOperators
 
       string[] digits = { "zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine" };
 
-      var shortDigits = digits.Where((digit, index) => digit.Length < index);
+      IEnumerable<string> shortDigits = digits.Where((digit, index) => digit.Length < index);
 
       Console.WriteLine("Short digits:");
-      foreach (var d in shortDigits)
+      foreach (String d in shortDigits)
       {
           Console.WriteLine($"The word {d} is shorter than its value.");
 }
