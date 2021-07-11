@@ -1,9 +1,9 @@
-// https://channel9.msdn.com/Series/C-Advanced/Introduction-to-Language-Integrated-Query-LINQ--C-Advanced-1-of-8
+﻿// https://channel9.msdn.com/Series/C-Advanced/Introduction-to-Language-Integrated-Query-LINQ--C-Advanced-1-of-8
 
 using System;
 using System.Collections.Generic;
 using System.Linq;
-
+using Try101LinqSamples;
 namespace RestrictionOperators
 {
   class Program
@@ -11,7 +11,7 @@ namespace RestrictionOperators
     private const string SEPARATOR = "===============================================================";
     static void Main(string[] args)
     {
-
+      
       // This sample uses where to find all elements of an array less than 5. 
       // It demonstrates the components of a query, including a where clause that filters for small numbers.
       printHeaders("LINQ query structure");
