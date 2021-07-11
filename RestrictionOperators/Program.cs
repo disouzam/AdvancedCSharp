@@ -1,4 +1,4 @@
-﻿// https://channel9.msdn.com/Series/C-Advanced/Introduction-to-Language-Integrated-Query-LINQ--C-Advanced-1-of-8
+// https://channel9.msdn.com/Series/C-Advanced/Introduction-to-Language-Integrated-Query-LINQ--C-Advanced-1-of-8
 
 using System;
 using System.Collections.Generic;
@@ -25,6 +25,11 @@ namespace RestrictionOperators
       {
         Console.WriteLine(x);
       }
+    private static void printHeaders(string text)
+    {
+      Console.WriteLine(SEPARATOR);
+      Console.WriteLine(text);
+      Console.WriteLine(SEPARATOR);
     }
   }
 }
