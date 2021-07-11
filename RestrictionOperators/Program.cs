@@ -1,4 +1,4 @@
-﻿// https://channel9.msdn.com/Series/C-Advanced/Introduction-to-Language-Integrated-Query-LINQ--C-Advanced-1-of-8
+// https://channel9.msdn.com/Series/C-Advanced/Introduction-to-Language-Integrated-Query-LINQ--C-Advanced-1-of-8
 
 using System;
 using System.Collections.Generic;
@@ -40,6 +40,21 @@ namespace RestrictionOperators
       foreach (var product in soldOutProducts)
       {
           Console.WriteLine($"{product.ProductName} is sold out!");
+      }
+
+      // This sample uses where to find all products that are in stock and cost more than 3.00 per unit.
+      printHeaders("Filter elements on multiple properties");
+
+      List<Product> products2 = Restrictions.GetProductList();
+
+      var expensiveInStockProducts = from prod in products2
+                                    where prod.UnitsInStock > 0 && prod.UnitPrice > 3.00M
+                                    select prod;
+
+      Console.WriteLine("In-stock products that cost more than 3.00:");
+      foreach (var product in expensiveInStockProducts)
+      {
+          Console.WriteLine($"{product.ProductName} is in stock and costs more than 3.00.");
       }
       
       // This sample demonstrates an indexed Where clause that returns digits whose name is shorter than their value.
